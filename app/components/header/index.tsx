@@ -7,12 +7,14 @@ import {
   MdOutlineSpaceDashboard,
 } from 'react-icons/md'
 import { SiHackthebox } from 'react-icons/si'
-import { FaHeart } from 'react-icons/fa'
+import { FaFileInvoiceDollar, FaHeart, FaPowerOff } from 'react-icons/fa'
 import { IoChatbubbleEllipsesSharp } from 'react-icons/io5'
 import { BiCalendar } from 'react-icons/bi'
 import { FcTodoList } from 'react-icons/fc'
 import { RiTodoFill } from 'react-icons/ri'
-import { IoMdContacts } from 'react-icons/io'
+import { IoIosSettings, IoMdContacts } from 'react-icons/io'
+import { VscSymbolInterface } from 'react-icons/vsc'
+import { CgProfile } from 'react-icons/cg'
 
 type HeaderProps = {
   children: ReactNode
@@ -20,8 +22,8 @@ type HeaderProps = {
 
 const Header = ({ children }: HeaderProps) => {
   return (
-    <div className="flex mt-8 container">
-      <header className="  max-w-[240px] w-full">
+    <div className="flex mt-3 container">
+      <header className="max-w-[240px] w-full h-full">
         <Link href={'/'} className="text-2xl ">
           <span className="font-bold text-[#4880FF]">RSF</span> Dashboard
         </Link>
@@ -44,7 +46,7 @@ const Header = ({ children }: HeaderProps) => {
             href={'/stock'}
           />
         </div>
-        <div className="w-[240px] h-[1px] bg-gray-300/20 my-6"></div>
+        <div className="w-[240px] h-[1px] bg-[#E0E0E0] bg-opacity-10 my-6"></div>
         <div>
           <h2 className="font-light">Paginas</h2>
           <div className="mt-2 flex flex-col gap-3">
@@ -68,6 +70,26 @@ const Header = ({ children }: HeaderProps) => {
               icon={<IoMdContacts />}
               href={'/contact'}
             />
+            <LinkCard
+              label="Faturas"
+              icon={<FaFileInvoiceDollar />}
+              href={'/invoice'}
+            />
+            <LinkCard
+              label="Elementos UI"
+              icon={<VscSymbolInterface />}
+              href={'/uielement'}
+            />
+            <LinkCard label="Perfil" icon={<CgProfile />} href={'/profile'} />
+          </div>
+          <div className="w-[240px] h-[1px] bg-[#E0E0E0] bg-opacity-10 my-6"></div>
+          <div className="flex flex-col gap-2">
+            <LinkCard
+              label="Configurações"
+              icon={<IoIosSettings />}
+              href={'/settings'}
+            />
+            <LinkCard label="Sair" icon={<FaPowerOff />} href={'/logout'} />
           </div>
         </div>
       </header>
